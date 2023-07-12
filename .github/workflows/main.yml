@@ -43,7 +43,6 @@ jobs:
           tags: 261032345623.dkr.ecr.us-east-1.amazonaws.com/nextjsapp:latest
           
       - name: Install and configure kubectl
-      - name: Group of log lines
         run: |
              curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
              chmod +x kubectl
