@@ -54,6 +54,7 @@ jobs:
           ls  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
           cd  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
           ls
+          cd deployment-ecs/
           terraform init 
           terraform plan 
 
