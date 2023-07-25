@@ -33,14 +33,18 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         
+      - name: Set Up terraform
+        uses: hashicorp/setup-terraform@v2
+      
       - name: Verify Terraform repo downloaded 
         run: |
           mkdir /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
-        
+          terraform version
+          
       - name: Checkout Terraform code
         uses: actions/checkout@v3
         with:
-            repository: hera1002/preact-netlify
+            repository: hera1002/reac-test-app
             token: ${{secrets.PAT}}
             path: /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
             
@@ -50,6 +54,8 @@ jobs:
           ls  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
           cd  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
           ls
-          pwd
+          terraform init 
+          terraform plan 
+
           
           
