@@ -5,9 +5,9 @@ name: TestWorkFlow
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dede" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "madedein" ]
 
 jobs:
   build:
@@ -16,4 +16,4 @@ jobs:
     steps:
       - name: Checkout code
         run: |
-         echo "${env.dev.EKS_CLUSTER_NAME}"
+
