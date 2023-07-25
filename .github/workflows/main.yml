@@ -33,19 +33,13 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         
-
-      - name: Build and tag Docker image
-        uses: docker/build-push-action@v2
+      - name: Checkout Terraform code
+        uses: actions/checkout@v3
         with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: 261032345623.dkr.ecr.us-east-1.amazonaws.com/nextjsapp:latest
-          
-      - name: Install and configure kubectl
+            repository: https://github.com/ProjectGooseTech/bbuy-infra-iac-tf
+            token: ${{secrets.PAT}}
+
+      - name: Verify Terraform repo downloaded 
         run: |
-             curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-             chmod +x kubectl
-             mkdir -p ~/.local/bin
-             mv ./kubectl ~/.local/bin/kubectl
-             kubectl version --client
+          ls -ltr
+          
