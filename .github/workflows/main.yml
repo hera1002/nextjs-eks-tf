@@ -42,4 +42,5 @@ jobs:
       - name: Verify Terraform repo downloaded 
         run: |
           ls -ltr
+          pwd
           
