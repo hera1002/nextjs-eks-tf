@@ -35,7 +35,7 @@ jobs:
         
       - name: Verify Terraform repo downloaded 
         run: |
-          mkdir home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
+          mkdir /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
         
       - name: Checkout Terraform code
         uses: actions/checkout@v3
@@ -45,7 +45,7 @@ jobs:
             path: /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
             
             
-      - name: Verify Terraform repo downloaded 
+      - name: Verify downloaded 
         run: |
           ls  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
           cd  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
