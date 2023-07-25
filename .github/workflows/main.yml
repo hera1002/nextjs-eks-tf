@@ -33,19 +33,22 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         
+      - name: Verify Terraform repo downloaded 
+        run: |
+          mkdir home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
+        
       - name: Checkout Terraform code
         uses: actions/checkout@v3
         with:
             repository: hera1002/preact-netlify
             token: ${{secrets.PAT}}
-            path: /home/runner/work/
-
+            path: /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
+            
+            
       - name: Verify Terraform repo downloaded 
         run: |
-          ls -ltr
-          pwd
-          cd /home/runner/work/
-          ls -ltr
-          pwd
+          ls  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
+          cd  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
+          ls
           
           
