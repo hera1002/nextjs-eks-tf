@@ -23,7 +23,8 @@ jobs:
       - name: Step 2 with Dynamic Environment Variable
         run: |
           # Execute some commands or scripts to determine the variable value
-          terraform version
+          terraform version > tt
+          cat tt
           DYNAMIC_VALUE=$(echo "TEST")
           echo "DYNAMIC_VALUE=$DYNAMIC_VALUE" >> $GITHUB_ENV
           VALUE=$(terraform version)
