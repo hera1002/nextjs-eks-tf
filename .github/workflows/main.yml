@@ -25,7 +25,7 @@ jobs:
           # Execute some commands or scripts to determine the variable value
           terraform version > tt
           cat tt
-          DYNAMIC_VALUE=$(cat tt )
+          DYNAMIC_VALUE=$(echo "ttt" )
           echo "DYNAMIC_VALUE=$DYNAMIC_VALUE" >> $GITHUB_ENV
           VALUE=$(terraform version)
           echo "========================="
