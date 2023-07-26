@@ -27,7 +27,9 @@ jobs:
           DYNAMIC_VALUE=$(echo "TEST")
           echo "DYNAMIC_VALUE=$DYNAMIC_VALUE" >> $GITHUB_ENV
           VALUE=$(terraform version)
+          echo "========================="
           echo $VALUE
+          echo "============================"
           # echo "VALUE=$VALUE" >> $GITHUB_ENV
 
       - name: Step 3
