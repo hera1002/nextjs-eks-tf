@@ -49,14 +49,20 @@ jobs:
             path: /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
             
             
+
+
+
+      - name: Step 2 with Dynamic Environment Variable
+        run: |
+          # Execute some commands or scripts to determine the variable value
+          DYNAMIC_VALUE=$(terraform version)
+          echo "DYNAMIC_VALUE=$DYNAMIC_VALUE" >> $GITHUB_ENV
+          
       - name: Verify downloaded 
         run: |
           ls  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
           cd  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
           ls
           cd deployment-ecs/
-          terraform init 
-          terraform plan 
-
           
           
