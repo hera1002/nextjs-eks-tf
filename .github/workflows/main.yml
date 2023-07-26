@@ -16,10 +16,14 @@ jobs:
     steps:
       - name: Step 1
         run: echo "This is Step 1"
+        
+      - name: Set Up terraform
+        uses: hashicorp/setup-terraform@v2
 
       - name: Step 2 with Dynamic Environment Variable
         run: |
           # Execute some commands or scripts to determine the variable value
+          terraform init
           DYNAMIC_VALUE=$(echo "TEST")
           echo "DYNAMIC_VALUE=$DYNAMIC_VALUE" >> $GITHUB_ENV
 
