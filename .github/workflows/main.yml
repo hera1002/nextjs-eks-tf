@@ -20,7 +20,7 @@ jobs:
       - name: Step 2 with Dynamic Environment Variable
         run: |
           # Execute some commands or scripts to determine the variable value
-          DYNAMIC_VALUE=$(some_command_to_generate_value)
+          DYNAMIC_VALUE=$(echo "TEST")
           echo "DYNAMIC_VALUE=$DYNAMIC_VALUE" >> $GITHUB_ENV
 
       - name: Step 3
