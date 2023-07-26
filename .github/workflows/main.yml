@@ -14,55 +14,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-     
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-#
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-        
-      - name: Set Up terraform
-        uses: hashicorp/setup-terraform@v2
-      
-      - name: Verify Terraform repo downloaded 
-        run: |
-          mkdir /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
-          terraform version
-          
-      - name: Checkout Terraform code
-        uses: actions/checkout@v3
-        with:
-            repository: hera1002/reac-test-app
-            token: ${{secrets.PAT}}
-            path: /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra
-            
-            
-
-
+      - name: Step 1
+        run: echo "This is Step 1"
 
       - name: Step 2 with Dynamic Environment Variable
         run: |
           # Execute some commands or scripts to determine the variable value
-          DYNAMIC_VALUE=$(terraform version)
+          DYNAMIC_VALUE=$(some_command_to_generate_value)
           echo "DYNAMIC_VALUE=$DYNAMIC_VALUE" >> $GITHUB_ENV
-          
-      - name: Verify downloaded 
-        run: |
-          ls  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
-          cd  /home/runner/work/nextjs-eks-tf/nextjs-eks-tf/bbuy-infra/
-          ls
-          cd deployment-ecs/
-          
+
+      - name: Step 3
+        run: echo "This is Step 3"
+
           
